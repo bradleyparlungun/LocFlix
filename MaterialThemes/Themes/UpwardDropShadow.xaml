@@ -1,0 +1,19 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:MaterialThemes.Themes">
+
+    <Style x:Key="UpwardDropShadow" TargetType="Border">
+        <Setter Property="CornerRadius" Value="100" />
+        <Setter Property="BorderThickness" Value="0,2,0,0" />
+        <Setter Property="BorderBrush">
+            <Setter.Value>
+                <LinearGradientBrush>
+                    <GradientStop Offset="1" Color="#ccc" />
+                    <GradientStop Offset="0" Color="#ddd" />
+                </LinearGradientBrush>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+</ResourceDictionary>
