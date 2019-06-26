@@ -1,0 +1,331 @@
+﻿<Page
+    x:Class="LocFlix.Uwp.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:Interactivity="using:Microsoft.Xaml.Interactivity"
+    xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:helpers="using:LocFlix.Uwp.Helpers"
+    xmlns:local="using:LocFlix.Uwp"
+    xmlns:materialthemes="using:MaterialThemes"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:vm="using:LocFlix.Uwp.ViewModels"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
+    mc:Ignorable="d">
+
+    <Page.DataContext>
+        <vm:MovieViewModel />
+    </Page.DataContext>
+
+    <Page.Resources>
+        <helpers:StringFormatConverter x:Key="StringFormatConverter" />
+    </Page.Resources>
+
+    <Grid>
+        <Image
+            Name="Backdrop"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            Source="Assets/backdrop.jpg"
+            Stretch="UniformToFill" />
+
+        <Grid Padding="20,40,20,20" Background="{ThemeResource SystemControlAcrylicElementBrush}">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2*" />
+                <ColumnDefinition Width="6*" />
+            </Grid.ColumnDefinitions>
+            <ScrollViewer VerticalScrollMode="Enabled">
+                <StackPanel Margin="10">
+                    <TextBlock
+                        HorizontalAlignment="Center"
+                        Style="{StaticResource PageTitleStyle}"
+                        Text="Sorting" />
+
+                    <Border
+                        Margin="0,10,0,0"
+                        VerticalAlignment="Bottom"
+                        BorderBrush="Gray"
+                        BorderThickness="1"
+                        Style="{StaticResource DownwardDropShadow}" />
+
+                    <TextBox
+                        Name="Search"
+                        Margin="0,10,0,0"
+                        HorizontalAlignment="Stretch"
+                        Header="Search"
+                        Style="{StaticResource MaterialDesignTextBox}"
+                        TextChanged="Search_OnTextChanged">
+                        <Interactivity:Interaction.Behaviors>
+                            <materialthemes:MoveHeaderOnFocusBehavior />
+                        </Interactivity:Interaction.Behaviors>
+                    </TextBox>
+
+                    <ComboBox
+                        Name="Sort"
+                        Margin="0,10,0,0"
+                        HorizontalAlignment="Stretch"
+                        Header="Sort"
+                        PlaceholderText="Sort"
+                        SelectionChanged="ComboBox_SelectionChanged">
+                        <ComboBoxItem Name="Ascending" Content="Sort Ascending" />
+                        <ComboBoxItem Name="Descending" Content="Sort Descending" />
+                    </ComboBox>
+
+                    <Grid Margin="0,10,0,0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+
+                        <TextBox
+                            Name="From"
+                            Margin="0,0,5,0"
+                            HorizontalAlignment="Stretch"
+                            BeforeTextChanging="TextBox_OnBeforeTextChanging"
+                            Header="From"
+                            MaxLength="4"
+                            Style="{StaticResource MaterialDesignTextBox}"
+                            Text="1900"
+                            TextChanged="Date_TextChanged">
+                            <Interactivity:Interaction.Behaviors>
+                                <materialthemes:MoveHeaderOnFocusBehavior />
+                            </Interactivity:Interaction.Behaviors>
+                        </TextBox>
+
+                        <TextBox
+                            Name="To"
+                            Grid.Column="1"
+                            Margin="5,0,0,0"
+                            HorizontalAlignment="Stretch"
+                            BeforeTextChanging="TextBox_OnBeforeTextChanging"
+                            Header="To"
+                            MaxLength="4"
+                            Style="{StaticResource MaterialDesignTextBox}"
+                            Text="2020"
+                            TextChanged="Date_TextChanged">
+                            <Interactivity:Interaction.Behaviors>
+                                <materialthemes:MoveHeaderOnFocusBehavior />
+                            </Interactivity:Interaction.Behaviors>
+                        </TextBox>
+                    </Grid>
+
+                    <StackPanel
+                        Margin="0,20,0,0"
+                        HorizontalAlignment="Center"
+                        Orientation="Horizontal">
+                        <StackPanel>
+                            <CheckBox
+                                Name="Action"
+                                HorizontalAlignment="Stretch"
+                                Click="Action_OnClick"
+                                Content="Action"
+                                Style="{StaticResource MaterialDesignCheckBox}" />
+                            <CheckBox
+                                Name="Adventure"
+                                HorizontalAlignment="Stretch"
+                                Click="Adventure_OnClick"
+                                Content="Adventure"
+                                Style="{StaticResource MaterialDesignCheckBox}" />
+                            <CheckBox
+                                Name="Animation"
+                                HorizontalAlignment="Stretch"
+                                Click="Animation_OnClick"
+                                Content="Animation"
+                                Style="{StaticResource MaterialDesignCheckBox}" />
+                            <CheckBox
+                                Name="Comedy"
+                                HorizontalAlignment="Stretch"
+                                Click="Comedy_OnClick"
+                                Content="Comedy"
+                                Style="{StaticResource MaterialDesignCheckBox}" />
+                            <CheckBox
+                                Name="Crime"
+                                HorizontalAlignment="Stretch"
+                                Click="Crime_OnClick"
+                                Content="Crime"
+                                Style="{StaticResource MaterialDesignCheckBox}" />
+                            <CheckBox
+                                Name="Documentary"
+                                HorizontalAlignment="Stretch"
+                                Click="Documentary_OnClick"
+                                Content="Documentary"
+                                Style="{StaticResource MaterialDesignCheckBox}" />
+                            <CheckBox
+                                Name="Drama"
+                                HorizontalAlignment="Stretch"
+                                Click="Drama_OnClick"
+                                Content="Drama"
+                                Style="{StaticResource MaterialDesignCheckBox}" />
+                            <CheckBox
+                                Name="Family"
+                                HorizontalAlignment="Stretch"
+                                Click="Family_OnClick"
+                                Content="Family"
+                                Style="{StaticResource MaterialDesignCheckBox}" />
+                            <CheckBox
+                                Name="Fantasy"
+                                HorizontalAlignment="Stretch"
+                                Click="Fantasy_OnClick"
+                                Content="Fantasy"
+                                Style="{StaticResource MaterialDesignCheckBox}" />
+                        </StackPanel>
+                        <StackPanel>
+                            <CheckBox
+                                Name="History"
+                                HorizontalAlignment="Stretch"
+                                Click="History_OnClick"
+                                Content="History"
+                                Style="{StaticResource MaterialDesignCheckBox}" />
+                            <CheckBox
+                                Name="Horror"
+                                HorizontalAlignment="Stretch"
+                                Click="Horror_OnClick"
+                                Content="Horror"
+                                Style="{StaticResource MaterialDesignCheckBox}" />
+                            <CheckBox
+                                Name="Mystery"
+                                HorizontalAlignment="Stretch"
+                                Click="Mystery_OnClick"
+                                Content="Mystery"
+                                Style="{StaticResource MaterialDesignCheckBox}" />
+                            <CheckBox
+                                Name="Romance"
+                                HorizontalAlignment="Stretch"
+                                Click="Romance_OnClick"
+                                Content="Romance"
+                                Style="{StaticResource MaterialDesignCheckBox}" />
+                            <CheckBox
+                                Name="ScienceFiction"
+                                HorizontalAlignment="Stretch"
+                                Click="ScienceFiction_OnClick"
+                                Content="Science Fiction"
+                                Style="{StaticResource MaterialDesignCheckBox}" />
+                            <CheckBox
+                                Name="TvMovie"
+                                HorizontalAlignment="Stretch"
+                                Click="TvMovie_OnClick"
+                                Content="TV Movie"
+                                Style="{StaticResource MaterialDesignCheckBox}" />
+                            <CheckBox
+                                Name="Thriller"
+                                HorizontalAlignment="Stretch"
+                                Click="Thriller_OnClick"
+                                Content="Thriller"
+                                Style="{StaticResource MaterialDesignCheckBox}" />
+                            <CheckBox
+                                Name="War"
+                                HorizontalAlignment="Stretch"
+                                Click="War_OnClick"
+                                Content="War"
+                                Style="{StaticResource MaterialDesignCheckBox}" />
+                            <CheckBox
+                                Name="Western"
+                                HorizontalAlignment="Stretch"
+                                Click="Western_OnClick"
+                                Content="Western"
+                                Style="{StaticResource MaterialDesignCheckBox}" />
+                        </StackPanel>
+                    </StackPanel>
+
+                    <TextBlock
+                        Margin="0,20,0,0"
+                        HorizontalAlignment="Center"
+                        Style="{StaticResource BodyTextStyle}"
+                        Text="Settings" />
+
+                    <Border
+                        Margin="0,10,0,0"
+                        VerticalAlignment="Bottom"
+                        BorderBrush="Gray"
+                        BorderThickness="1"
+                        Style="{StaticResource DownwardDropShadow}" />
+
+                    <StackPanel
+                        Margin="10"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Orientation="Horizontal">
+                        <Button
+                            Margin="0,0,5,0"
+                            HorizontalAlignment="Center"
+                            Command="{Binding NewPath}"
+                            Style="{StaticResource MaterialDesignRaisedButton}">
+                            <SymbolIcon Symbol="NewFolder" />
+                        </Button>
+                        <Button
+                            Name="Clear"
+                            Margin="5,0,5,0"
+                            HorizontalAlignment="Center"
+                            Click="Clear_OnClick"
+                            Style="{StaticResource MaterialDesignRaisedDarkButton}">
+                            <SymbolIcon Symbol="ClearSelection" />
+                        </Button>
+                        <Button
+                            Name="ReConfig"
+                            Margin="5,0,0,0"
+                            HorizontalAlignment="Center"
+                            Click="ReConfig_OnClick"
+                            Style="{StaticResource MaterialDesignRaisedAccentButton}">
+                            <SymbolIcon Symbol="Setting" />
+                        </Button>
+                    </StackPanel>
+                </StackPanel>
+            </ScrollViewer>
+
+            <ScrollViewer Grid.Column="1" VerticalScrollMode="Enabled">
+                <StackPanel Margin="10">
+                    <TextBlock Style="{StaticResource PageTitleStyle}" Text="Movies" />
+                    <Border
+                        Margin="0,10,0,10"
+                        VerticalAlignment="Bottom"
+                        BorderBrush="Gray"
+                        BorderThickness="1"
+                        Style="{StaticResource DownwardDropShadow}" />
+                    <controls:AdaptiveGridView
+                        Name="AdaptiveGridViewMovies"
+                        DesiredWidth="200"
+                        IsItemClickEnabled="True"
+                        ItemClick="AdaptiveGridViewMovies_OnItemClick"
+                        ItemsSource="{Binding Movies, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                        <controls:AdaptiveGridView.ItemTemplate>
+                            <DataTemplate>
+                                <Grid ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollMode="Auto">
+                                    <Image Stretch="UniformToFill">
+                                        <Image.Source>
+                                            <BitmapImage UriSource="{Binding Images.Posters[0].FilePath, Converter={StaticResource StringFormatConverter}, ConverterParameter='https://image.tmdb.org/t/p/w200/{0}'}" />
+                                        </Image.Source>
+                                    </Image>
+
+                                    <StackPanel
+                                        Height="65"
+                                        Margin="10"
+                                        Padding="5,0,5,0"
+                                        VerticalAlignment="Bottom"
+                                        Background="{ThemeResource SystemControlAcrylicElementBrush}"
+                                        CornerRadius="2,2,2,2"
+                                        Orientation="Vertical">
+                                        <TextBlock
+                                            Padding="5,5,5,0"
+                                            FontSize="{StaticResource MediumFontSize}"
+                                            Foreground="{ThemeResource MaterialDesignBody}"
+                                            Text="{Binding Title}"
+                                            TextTrimming="CharacterEllipsis"
+                                            TextWrapping="NoWrap" />
+                                        <StackPanel Padding="5,0,5,0" Orientation="Horizontal">
+                                            <SymbolIcon Symbol="SolidStar" />
+                                            <TextBlock
+                                                Padding="0,5,5,5"
+                                                Foreground="{ThemeResource MaterialDesignBody}"
+                                                Text="{Binding VoteAverage, Converter={StaticResource StringFormatConverter}, ConverterParameter=' {0}/10'}"
+                                                TextWrapping="WrapWholeWords" />
+                                        </StackPanel>
+                                    </StackPanel>
+                                </Grid>
+                            </DataTemplate>
+                        </controls:AdaptiveGridView.ItemTemplate>
+                    </controls:AdaptiveGridView>
+                </StackPanel>
+            </ScrollViewer>
+        </Grid>
+    </Grid>
+</Page>

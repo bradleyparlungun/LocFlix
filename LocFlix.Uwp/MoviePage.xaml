@@ -1,0 +1,248 @@
+﻿<Page
+    x:Class="LocFlix.Uwp.MoviePage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:helpers="using:LocFlix.Uwp.Helpers"
+    xmlns:local="using:LocFlix.Uwp"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
+    mc:Ignorable="d">
+
+    <Page.Resources>
+        <helpers:StringFormatConverter x:Key="StringFormatConverter" />
+    </Page.Resources>
+
+    <Grid>
+        <Image
+            Name="Backdrop"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            Stretch="UniformToFill" />
+
+        <Grid Background="{ThemeResource SystemControlAcrylicElementBrush}">
+            <ScrollViewer VerticalScrollMode="Enabled">
+                <Grid Margin="60">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="3*" />
+                        <RowDefinition Height="3*" />
+                    </Grid.RowDefinitions>
+                    <StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <Button
+                                Margin="20,0,0,0"
+                                Click="ButtonBase_OnClick"
+                                Style="{StaticResource MaterialDesignRaisedLightButton}">
+                                <SymbolIcon Symbol="Back" />
+                            </Button>
+                            <TextBlock
+                                Margin="10,0,0,0"
+                                VerticalAlignment="Center"
+                                Style="{StaticResource TitleTextBlockStyle}"
+                                Text="{x:Bind Movie.Title}" />
+                        </StackPanel>
+
+                        <Border
+                            Margin="0,10,0,10"
+                            VerticalAlignment="Bottom"
+                            BorderBrush="Gray"
+                            BorderThickness="1"
+                            Style="{StaticResource DownwardDropShadow}" />
+                    </StackPanel>
+                    <Grid
+                        Grid.Row="1"
+                        Margin="0,20,0,0"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Top">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+
+                        <Grid>
+                            <Image
+                                Name="Poster"
+                                MinWidth="200"
+                                MaxWidth="300"
+                                Margin="10" />
+                            <Button
+                                Name="PlayMovie"
+                                Width="100"
+                                Height="100"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                Background="{ThemeResource SystemControlAcrylicElementBrush}"
+                                Click="PlayMovie_OnClick"
+                                CornerRadius="100">
+                                <Viewbox MaxWidth="60" MaxHeight="60">
+                                    <SymbolIcon Foreground="Gray" Symbol="Play" />
+                                </Viewbox>
+                            </Button>
+                        </Grid>
+                        <ScrollViewer Grid.Column="1" VerticalScrollMode="Enabled">
+                            <StackPanel
+                                MinWidth="300"
+                                MaxWidth="600"
+                                Padding="20">
+                                <TextBlock Style="{StaticResource PageTitleStyle}" Text="Information" />
+                                <Border
+                                    Margin="0,10,0,0"
+                                    VerticalAlignment="Bottom"
+                                    BorderBrush="Gray"
+                                    BorderThickness="1"
+                                    Style="{StaticResource DownwardDropShadow}" />
+                                <TextBlock
+                                    Margin="0,10,0,0"
+                                    Style="{StaticResource BodyTextStyle}"
+                                    Text="{x:Bind Movie.Tagline}"
+                                    TextWrapping="WrapWholeWords" />
+                                <TextBlock
+                                    Margin="0,10,0,0"
+                                    Style="{StaticResource BodyTextStyle}"
+                                    Text="{x:Bind Movie.Overview}"
+                                    TextWrapping="WrapWholeWords" />
+                                <TextBlock
+                                    Margin="0,10,0,0"
+                                    Style="{StaticResource BodyTextStyle}"
+                                    Text="{x:Bind Movie.Homepage}"
+                                    TextWrapping="WrapWholeWords" />
+                                <TextBlock
+                                    Margin="0,10,0,0"
+                                    Style="{StaticResource BodyTextStyle}"
+                                    Text="{x:Bind Movie.ReleaseDate, Converter={StaticResource StringFormatConverter}, ConverterParameter='Release Date: {0}'}"
+                                    TextWrapping="WrapWholeWords" />
+                                <TextBlock
+                                    Margin="0,10,0,0"
+                                    Style="{StaticResource BodyTextStyle}"
+                                    Text="{x:Bind Movie.Budget, Converter={StaticResource StringFormatConverter}, ConverterParameter='Budget: {0}'}"
+                                    TextWrapping="WrapWholeWords" />
+                                <TextBlock
+                                    Margin="0,10,0,0"
+                                    Style="{StaticResource BodyTextStyle}"
+                                    Text="{x:Bind Movie.Revenue, Converter={StaticResource StringFormatConverter}, ConverterParameter='Revenue: {0}'}"
+                                    TextWrapping="WrapWholeWords" />
+                            </StackPanel>
+                        </ScrollViewer>
+                    </Grid>
+
+                    <Grid
+                        Grid.Row="2"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Top">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="4*" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+
+                        <StackPanel Grid.ColumnSpan="4">
+                            <TextBlock
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                Style="{StaticResource TitleTextBlockStyle}"
+                                Text="Similar Movies" />
+                            <Border
+                                MinWidth="200"
+                                MaxWidth="600"
+                                Margin="0,10,0,10"
+                                VerticalAlignment="Bottom"
+                                BorderBrush="Gray"
+                                BorderThickness="1"
+                                Style="{StaticResource DownwardDropShadow}" />
+                        </StackPanel>
+                        <StackPanel
+                            Grid.Row="1"
+                            Grid.Column="0"
+                            MaxWidth="200">
+                            <TextBlock
+                                Margin="10,0,10,0"
+                                VerticalAlignment="Center"
+                                Style="{StaticResource BodyTextStyle}"
+                                Text="{x:Bind Movie.Similar.Results[0].Title}"
+                                TextWrapping="NoWrap" />
+                            <Border
+                                Margin="0,10,0,10"
+                                VerticalAlignment="Bottom"
+                                BorderBrush="Gray"
+                                BorderThickness="1"
+                                Style="{StaticResource DownwardDropShadow}" />
+                            <Image
+                                Name="Similar1"
+                                MaxWidth="150"
+                                Margin="10" />
+                        </StackPanel>
+                        <StackPanel
+                            Grid.Row="1"
+                            Grid.Column="1"
+                            MaxWidth="200">
+                            <TextBlock
+                                Margin="10,0,10,0"
+                                VerticalAlignment="Center"
+                                Style="{StaticResource BodyTextStyle}"
+                                Text="{x:Bind Movie.Similar.Results[1].Title}"
+                                TextWrapping="NoWrap" />
+                            <Border
+                                Margin="0,10,0,10"
+                                VerticalAlignment="Bottom"
+                                BorderBrush="Gray"
+                                BorderThickness="1"
+                                Style="{StaticResource DownwardDropShadow}" />
+                            <Image
+                                Name="Similar2"
+                                MaxWidth="150"
+                                Margin="10" />
+                        </StackPanel>
+                        <StackPanel
+                            Grid.Row="1"
+                            Grid.Column="2"
+                            MaxWidth="200">
+                            <TextBlock
+                                Margin="10,0,10,0"
+                                VerticalAlignment="Center"
+                                Style="{StaticResource BodyTextStyle}"
+                                Text="{x:Bind Movie.Similar.Results[2].Title}"
+                                TextWrapping="NoWrap" />
+                            <Border
+                                Margin="0,10,0,10"
+                                VerticalAlignment="Bottom"
+                                BorderBrush="Gray"
+                                BorderThickness="1"
+                                Style="{StaticResource DownwardDropShadow}" />
+                            <Image
+                                Name="Similar3"
+                                MaxWidth="150"
+                                Margin="10" />
+                        </StackPanel>
+                        <StackPanel
+                            Grid.Row="1"
+                            Grid.Column="3"
+                            MaxWidth="200">
+                            <TextBlock
+                                Margin="10,0,10,0"
+                                VerticalAlignment="Center"
+                                Style="{StaticResource BodyTextStyle}"
+                                Text="{x:Bind Movie.Similar.Results[3].Title}"
+                                TextWrapping="NoWrap" />
+                            <Border
+                                Margin="0,10,0,10"
+                                VerticalAlignment="Bottom"
+                                BorderBrush="Gray"
+                                BorderThickness="1"
+                                Style="{StaticResource DownwardDropShadow}" />
+                            <Image
+                                Name="Similar4"
+                                MaxWidth="150"
+                                Margin="10" />
+                        </StackPanel>
+                    </Grid>
+                </Grid>
+            </ScrollViewer>
+        </Grid>
+    </Grid>
+</Page>
