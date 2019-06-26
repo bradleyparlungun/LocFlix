@@ -49,7 +49,7 @@ namespace LocFlix.Wpf.ViewModels
 
         public MovieSingleton Singleton = MovieSingleton.Instance;
 
-        public TMDbClient Client = new TMDbClient("15438e7eeaa0439e630dffd07af5df46");
+        public TMDbClient Client = new TMDbClient("PLACEYOURTMDBAPIKEYHERE");
 
         public ObservableCollection<Movie> Movies
         {
