@@ -9,4 +9,5 @@ To use this application you need a TMDB api key, you can get this from https://w
 ## WPF Application
 ![WPF Application](https://i.imgur.com/KLMSbcF.png)
 
+(LocFlix stands for Local NetFlix)
 Enjoy!
