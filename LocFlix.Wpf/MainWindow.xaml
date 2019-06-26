@@ -1,0 +1,321 @@
+﻿<Window
+    x:Class="LocFlix.Wpf.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:domain="clr-namespace:TMDbLib.Objects.Movies"
+    xmlns:helpers="clr-namespace:LocFlix.Wpf.Helpers"
+    xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:vm="clr-namespace:LocFlix.Wpf.ViewModels"
+    Title="LocFlix"
+    Width="1100"
+    Height="750"
+    Background="{DynamicResource MaterialDesignPaper}"
+    FontFamily="ms-appx:///MaterialDesignThemes.Uwp/Assets/Roboto/Roboto-Regular.ttf#Roboto"
+    FontSize="14"
+    Foreground="{DynamicResource MaterialDesignBody}"
+    mc:Ignorable="d">
+
+    <Window.DataContext>
+        <vm:MovieViewModel />
+    </Window.DataContext>
+
+    <Window.Resources>
+        <helpers:StringFormatConverter x:Key="StringFormatConverter" />
+    </Window.Resources>
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2*" />
+            <ColumnDefinition Width="6*" />
+        </Grid.ColumnDefinitions>
+        <Grid Margin="10">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="30" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <StackPanel>
+                <TextBlock
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Style="{DynamicResource MaterialDesignTitleTextBlock}">
+                    Sorting
+                </TextBlock>
+                <Separator />
+            </StackPanel>
+            <StackPanel Grid.Row="1">
+                <TextBlock Margin="10,10,10,0" Text="Search" />
+                <TextBox
+                    Name="Search"
+                    Margin="10,0,10,10"
+                    TextChanged="Search_OnTextChanged" />
+                <StackPanel>
+                    <TextBlock Margin="10,10,10,0" Text="Sort Direction" />
+                    <ComboBox
+                        Name="Sort"
+                        Margin="10,0,10,10"
+                        SelectionChanged="ComboBox_SelectionChanged">
+                        <ComboBoxItem>Ascending</ComboBoxItem>
+                        <ComboBoxItem>Descending</ComboBoxItem>
+                    </ComboBox>
+                </StackPanel>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <StackPanel>
+                        <TextBlock Margin="10,10,10,0" Text="From" />
+                        <TextBox
+                            Name="From"
+                            Margin="10,0,10,10"
+                            TextChanged="Date_TextChanged" />
+                    </StackPanel>
+                    <StackPanel Grid.Column="1">
+                        <TextBlock Margin="10,10,10,0" Text="To" />
+                        <TextBox
+                            Name="To"
+                            Margin="10,0,10,10"
+                            TextChanged="Date_TextChanged" />
+                    </StackPanel>
+                </Grid>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <StackPanel Grid.ColumnSpan="2" Margin="0,10,0,10">
+                        <TextBlock
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            Style="{DynamicResource MaterialDesignTitleTextBlock}">
+                            Genres
+                        </TextBlock>
+                        <Separator />
+                    </StackPanel>
+                    <StackPanel Grid.Row="1" Grid.Column="0">
+                        <CheckBox
+                            Name="Action"
+                            Margin="0,2,0,0"
+                            HorizontalAlignment="Stretch"
+                            Click="Action_OnClick"
+                            Content="Action"
+                            Style="{StaticResource MaterialDesignCheckBox}" />
+                        <CheckBox
+                            Name="Adventure"
+                            Margin="0,2,0,0"
+                            HorizontalAlignment="Stretch"
+                            Click="Adventure_OnClick"
+                            Content="Adventure"
+                            Style="{StaticResource MaterialDesignCheckBox}" />
+                        <CheckBox
+                            Name="Animation"
+                            Margin="0,2,0,0"
+                            HorizontalAlignment="Stretch"
+                            Click="Animation_OnClick"
+                            Content="Animation"
+                            Style="{StaticResource MaterialDesignCheckBox}" />
+                        <CheckBox
+                            Name="Comedy"
+                            Margin="0,2,0,0"
+                            HorizontalAlignment="Stretch"
+                            Click="Comedy_OnClick"
+                            Content="Comedy"
+                            Style="{StaticResource MaterialDesignCheckBox}" />
+                        <CheckBox
+                            Name="Crime"
+                            Margin="0,2,0,0"
+                            HorizontalAlignment="Stretch"
+                            Click="Crime_OnClick"
+                            Content="Crime"
+                            Style="{StaticResource MaterialDesignCheckBox}" />
+                        <CheckBox
+                            Name="Documentary"
+                            Margin="0,2,0,0"
+                            HorizontalAlignment="Stretch"
+                            Click="Documentary_OnClick"
+                            Content="Documentary"
+                            Style="{StaticResource MaterialDesignCheckBox}" />
+                        <CheckBox
+                            Name="Drama"
+                            Margin="0,2,0,0"
+                            HorizontalAlignment="Stretch"
+                            Click="Drama_OnClick"
+                            Content="Drama"
+                            Style="{StaticResource MaterialDesignCheckBox}" />
+                        <CheckBox
+                            Name="Family"
+                            Margin="0,2,0,0"
+                            HorizontalAlignment="Stretch"
+                            Click="Family_OnClick"
+                            Content="Family"
+                            Style="{StaticResource MaterialDesignCheckBox}" />
+                        <CheckBox
+                            Name="Fantasy"
+                            Margin="0,2,0,0"
+                            HorizontalAlignment="Stretch"
+                            Click="Fantasy_OnClick"
+                            Content="Fantasy"
+                            Style="{StaticResource MaterialDesignCheckBox}" />
+                    </StackPanel>
+                    <StackPanel Grid.Row="1" Grid.Column="1">
+                        <CheckBox
+                            Name="History"
+                            Margin="0,2,0,0"
+                            HorizontalAlignment="Stretch"
+                            Click="History_OnClick"
+                            Content="History"
+                            Style="{StaticResource MaterialDesignCheckBox}" />
+                        <CheckBox
+                            Name="Horror"
+                            Margin="0,2,0,0"
+                            HorizontalAlignment="Stretch"
+                            Click="Horror_OnClick"
+                            Content="Horror"
+                            Style="{StaticResource MaterialDesignCheckBox}" />
+                        <CheckBox
+                            Name="Mystery"
+                            Margin="0,2,0,0"
+                            HorizontalAlignment="Stretch"
+                            Click="Mystery_OnClick"
+                            Content="Mystery"
+                            Style="{StaticResource MaterialDesignCheckBox}" />
+                        <CheckBox
+                            Name="Romance"
+                            Margin="0,2,0,0"
+                            HorizontalAlignment="Stretch"
+                            Click="Romance_OnClick"
+                            Content="Romance"
+                            Style="{StaticResource MaterialDesignCheckBox}" />
+                        <CheckBox
+                            Name="ScienceFiction"
+                            Margin="0,2,0,0"
+                            HorizontalAlignment="Stretch"
+                            Click="ScienceFiction_OnClick"
+                            Content="Science Fiction"
+                            Style="{StaticResource MaterialDesignCheckBox}" />
+                        <CheckBox
+                            Name="TvMovie"
+                            Margin="0,2,0,0"
+                            HorizontalAlignment="Stretch"
+                            Click="TvMovie_OnClick"
+                            Content="TV Movie"
+                            Style="{StaticResource MaterialDesignCheckBox}" />
+                        <CheckBox
+                            Name="Thriller"
+                            Margin="0,2,0,0"
+                            HorizontalAlignment="Stretch"
+                            Click="Thriller_OnClick"
+                            Content="Thriller"
+                            Style="{StaticResource MaterialDesignCheckBox}" />
+                        <CheckBox
+                            Name="War"
+                            Margin="0,2,0,0"
+                            HorizontalAlignment="Stretch"
+                            Click="War_OnClick"
+                            Content="War"
+                            Style="{StaticResource MaterialDesignCheckBox}" />
+                        <CheckBox
+                            Name="Western"
+                            Margin="0,2,0,0"
+                            HorizontalAlignment="Stretch"
+                            Click="Western_OnClick"
+                            Content="Western"
+                            Style="{StaticResource MaterialDesignCheckBox}" />
+                    </StackPanel>
+                </Grid>
+                <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
+                    <Button
+                        Margin="10"
+                        HorizontalAlignment="Center"
+                        Command="{Binding NewPath}"
+                        Style="{DynamicResource MaterialDesignFloatingActionMiniDarkButton}">
+                        <materialDesign:PackIcon Kind="CreateNewFolder" />
+                    </Button>
+                </StackPanel>
+            </StackPanel>
+        </Grid>
+        <ScrollViewer Grid.Column="1" Padding="10">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="30" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <StackPanel>
+                    <TextBlock
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Style="{DynamicResource MaterialDesignTitleTextBlock}">
+                        Movies
+                    </TextBlock>
+                    <Separator />
+                </StackPanel>
+                <Grid Grid.Row="1">
+                    <ItemsControl
+                        Name="ItemsControlMovies"
+                        Margin="12,0,12,0"
+                        Grid.IsSharedSizeScope="True"
+                        ItemsSource="{Binding Movies}">
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <materialDesign:Card Margin="10" Padding="5">
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="Auto" />
+                                            <ColumnDefinition Width="*" />
+                                        </Grid.ColumnDefinitions>
+                                        <Grid>
+                                            <Image Stretch="UniformToFill">
+                                                <Image.Source>
+                                                    <BitmapImage UriSource="{Binding Images.Posters[0].FilePath, Converter={StaticResource StringFormatConverter}, ConverterParameter='https://image.tmdb.org/t/p/w300/{0}'}" />
+                                                </Image.Source>
+                                            </Image>
+                                            <Button
+                                                HorizontalAlignment="Center"
+                                                VerticalAlignment="Center"
+                                                Style="{DynamicResource MaterialDesignFloatingActionMiniDarkButton}">
+                                                <materialDesign:PackIcon Kind="PlayArrow" />
+                                            </Button>
+                                        </Grid>
+                                        <StackPanel Grid.Column="1" Margin="10">
+                                            <TextBlock
+                                                HorizontalAlignment="Center"
+                                                VerticalAlignment="Center"
+                                                FontWeight="Bold"
+                                                Style="{DynamicResource MaterialDesignTitleTextBlock}"
+                                                Text="{Binding Title}" />
+                                            <Separator />
+                                            <StackPanel Margin="10">
+                                                <TextBlock
+                                                    Margin="0,10,0,0"
+                                                    Text="{Binding Overview}"
+                                                    TextWrapping="Wrap" />
+                                                <TextBlock
+                                                    Margin="0,10,0,0"
+                                                    Text="{Binding Tagline}"
+                                                    TextWrapping="Wrap" />
+                                                <TextBlock
+                                                    Margin="0,10,0,0"
+                                                    FontWeight="Bold"
+                                                    Text="{Binding ReleaseDate, Converter={StaticResource StringFormatConverter}, ConverterParameter='Release Date: {0}/10'}" />
+                                                <TextBlock
+                                                    Margin="0,10,0,0"
+                                                    FontWeight="Bold"
+                                                    Text="{Binding VoteAverage, Converter={StaticResource StringFormatConverter}, ConverterParameter='Rating: {0}/10'}" />
+                                            </StackPanel>
+                                        </StackPanel>
+                                    </Grid>
+                                </materialDesign:Card>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+                </Grid>
+            </Grid>
+        </ScrollViewer>
+    </Grid>
+</Window>

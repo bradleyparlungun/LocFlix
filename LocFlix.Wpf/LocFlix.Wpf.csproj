@@ -1,0 +1,448 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{2F4B58B0-AA24-4E19-A045-1E0B46A8515F}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>LocFlix.Wpf</RootNamespace>
+    <AssemblyName>LocFlix.Wpf</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="MaterialDesignColors, Version=1.1.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MaterialDesignColors.1.1.2\lib\net45\MaterialDesignColors.dll</HintPath>
+    </Reference>
+    <Reference Include="MaterialDesignThemes.Wpf, Version=2.5.1.1345, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MaterialDesignThemes.2.5.1\lib\net45\MaterialDesignThemes.Wpf.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Win32.Primitives, Version=4.0.2.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Win32.Primitives.4.3.0\lib\net46\Microsoft.Win32.Primitives.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.AppContext, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.AppContext.4.3.0\lib\net463\System.AppContext.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.Console, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Console.4.3.0\lib\net46\System.Console.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Diagnostics.DiagnosticSource, Version=4.0.1.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Diagnostics.DiagnosticSource.4.3.0\lib\net46\System.Diagnostics.DiagnosticSource.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Diagnostics.Tracing, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Diagnostics.Tracing.4.3.0\lib\net462\System.Diagnostics.Tracing.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Globalization.Calendars, Version=4.0.2.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Globalization.Calendars.4.3.0\lib\net46\System.Globalization.Calendars.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.IO, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IO.4.3.0\lib\net462\System.IO.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.IO.Compression, Version=4.1.2.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IO.Compression.4.3.0\lib\net46\System.IO.Compression.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.IO.Compression.FileSystem" />
+    <Reference Include="System.IO.Compression.ZipFile, Version=4.0.2.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IO.Compression.ZipFile.4.3.0\lib\net46\System.IO.Compression.ZipFile.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.IO.FileSystem, Version=4.0.2.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IO.FileSystem.4.3.0\lib\net46\System.IO.FileSystem.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.IO.FileSystem.Primitives, Version=4.0.2.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IO.FileSystem.Primitives.4.3.0\lib\net46\System.IO.FileSystem.Primitives.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Linq, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Linq.4.3.0\lib\net463\System.Linq.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Linq.Expressions, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Linq.Expressions.4.3.0\lib\net463\System.Linq.Expressions.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Net.Http, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Net.Http.4.3.0\lib\net46\System.Net.Http.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Net.Sockets, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Net.Sockets.4.3.0\lib\net46\System.Net.Sockets.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Reflection, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Reflection.4.3.0\lib\net462\System.Reflection.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Runtime, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.4.3.0\lib\net462\System.Runtime.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Runtime.Extensions, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.Extensions.4.3.0\lib\net462\System.Runtime.Extensions.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Runtime.InteropServices, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.InteropServices.4.3.0\lib\net463\System.Runtime.InteropServices.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Runtime.InteropServices.RuntimeInformation, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.InteropServices.RuntimeInformation.4.3.0\lib\net45\System.Runtime.InteropServices.RuntimeInformation.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Algorithms, Version=4.2.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.Algorithms.4.3.0\lib\net463\System.Security.Cryptography.Algorithms.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Encoding, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.Encoding.4.3.0\lib\net46\System.Security.Cryptography.Encoding.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Primitives, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.Primitives.4.3.0\lib\net46\System.Security.Cryptography.Primitives.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.X509Certificates, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.X509Certificates.4.3.0\lib\net461\System.Security.Cryptography.X509Certificates.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Text.RegularExpressions, Version=4.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Text.RegularExpressions.4.3.0\lib\net463\System.Text.RegularExpressions.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Xml.ReaderWriter, Version=4.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Xml.ReaderWriter.4.3.0\lib\net46\System.Xml.ReaderWriter.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="Client\TMDbClient.cs" />
+    <Compile Include="Client\TMDbClientAccount.cs" />
+    <Compile Include="Client\TMDbClientAuthentication.cs" />
+    <Compile Include="Client\TMDbClientCertifications.cs" />
+    <Compile Include="Client\TMDbClientChanges.cs" />
+    <Compile Include="Client\TMDbClientCollections.cs" />
+    <Compile Include="Client\TMDbClientCompanies.cs" />
+    <Compile Include="Client\TMDbClientConfiguration.cs" />
+    <Compile Include="Client\TMDbClientCredit.cs" />
+    <Compile Include="Client\TMDbClientDiscover.cs" />
+    <Compile Include="Client\TMDbClientFind.cs" />
+    <Compile Include="Client\TMDbClientGenres.cs" />
+    <Compile Include="Client\TMDbClientGuestSessions.cs" />
+    <Compile Include="Client\TMDbClientKeywords.cs" />
+    <Compile Include="Client\TMDbClientLists.cs" />
+    <Compile Include="Client\TMDbClientMovies.cs" />
+    <Compile Include="Client\TMDbClientNetworks.cs" />
+    <Compile Include="Client\TMDbClientPeople.cs" />
+    <Compile Include="Client\TMDbClientReviews.cs" />
+    <Compile Include="Client\TMDbClientSearch.cs" />
+    <Compile Include="Client\TMDbClientTvEpisodes.cs" />
+    <Compile Include="Client\TMDbClientTvSeasons.cs" />
+    <Compile Include="Client\TMDbClientTvShows.cs" />
+    <Compile Include="Helpers\RelayCommand.cs" />
+    <Compile Include="Helpers\StringFormatConverter.cs" />
+    <Compile Include="Objects\Account\AccountDetails.cs" />
+    <Compile Include="Objects\Account\AccountMovieSortBy.cs" />
+    <Compile Include="Objects\Account\Avatar.cs" />
+    <Compile Include="Objects\Account\Gravatar.cs" />
+    <Compile Include="Objects\Authentication\GuestSession.cs" />
+    <Compile Include="Objects\Authentication\GuestSessionRequiredException.cs" />
+    <Compile Include="Objects\Authentication\SessionType.cs" />
+    <Compile Include="Objects\Authentication\Token.cs" />
+    <Compile Include="Objects\Authentication\UserSession.cs" />
+    <Compile Include="Objects\Authentication\UserSessionRequiredException.cs" />
+    <Compile Include="Objects\Certifications\CertificationItem.cs" />
+    <Compile Include="Objects\Certifications\CertificationsContainer.cs" />
+    <Compile Include="Objects\Changes\Change.cs" />
+    <Compile Include="Objects\Changes\ChangeAction.cs" />
+    <Compile Include="Objects\Changes\ChangeItemAdded.cs" />
+    <Compile Include="Objects\Changes\ChangeItemBase.cs" />
+    <Compile Include="Objects\Changes\ChangeItemCreated.cs" />
+    <Compile Include="Objects\Changes\ChangeItemDeleted.cs" />
+    <Compile Include="Objects\Changes\ChangeItemDestroyed.cs" />
+    <Compile Include="Objects\Changes\ChangeItemUpdated.cs" />
+    <Compile Include="Objects\Changes\ChangesContainer.cs" />
+    <Compile Include="Objects\Changes\ChangesListItem.cs" />
+    <Compile Include="Objects\Collections\Collection.cs" />
+    <Compile Include="Objects\Collections\CollectionMethods.cs" />
+    <Compile Include="Objects\Companies\Company.cs" />
+    <Compile Include="Objects\Companies\CompanyMethods.cs" />
+    <Compile Include="Objects\Config.cs" />
+    <Compile Include="Objects\Countries\Country.cs" />
+    <Compile Include="Objects\Credit\Credit.cs" />
+    <Compile Include="Objects\Credit\CreditEpisode.cs" />
+    <Compile Include="Objects\Credit\CreditMedia.cs" />
+    <Compile Include="Objects\Credit\CreditPerson.cs" />
+    <Compile Include="Objects\Credit\CreditSeason.cs" />
+    <Compile Include="Objects\Discover\DiscoverBase.cs" />
+    <Compile Include="Objects\Discover\DiscoverMovie.cs" />
+    <Compile Include="Objects\Discover\DiscoverMovieSortBy.cs" />
+    <Compile Include="Objects\Discover\DiscoverTv.cs" />
+    <Compile Include="Objects\Discover\DiscoverTvShowSortBy.cs" />
+    <Compile Include="Objects\Exceptions\APIException.cs" />
+    <Compile Include="Objects\Exceptions\GeneralHttpException.cs" />
+    <Compile Include="Objects\Exceptions\NotFoundException.cs" />
+    <Compile Include="Objects\Exceptions\RequestLimitExceededException.cs" />
+    <Compile Include="Objects\Exceptions\TMDbException.cs" />
+    <Compile Include="Objects\Exceptions\TMDbStatusMessage.cs" />
+    <Compile Include="Objects\Find\FindContainer.cs" />
+    <Compile Include="Objects\Find\FindExternalSource.cs" />
+    <Compile Include="Objects\Find\FindTvSeason.cs" />
+    <Compile Include="Objects\General\AccountState.cs" />
+    <Compile Include="Objects\General\AlternativeName.cs" />
+    <Compile Include="Objects\General\AlternativeNames.cs" />
+    <Compile Include="Objects\General\AlternativeTitle.cs" />
+    <Compile Include="Objects\General\ConfigImageTypes.cs" />
+    <Compile Include="Objects\General\CreditType.cs" />
+    <Compile Include="Objects\General\Crew.cs" />
+    <Compile Include="Objects\General\DateRange.cs" />
+    <Compile Include="Objects\General\ExternalIds.cs" />
+    <Compile Include="Objects\General\ExternalIdsMovie.cs" />
+    <Compile Include="Objects\General\ExternalIdsPerson.cs" />
+    <Compile Include="Objects\General\ExternalIdsTvEpisode.cs" />
+    <Compile Include="Objects\General\ExternalIdsTvSeason.cs" />
+    <Compile Include="Objects\General\ExternalIdsTvShow.cs" />
+    <Compile Include="Objects\General\Genre.cs" />
+    <Compile Include="Objects\General\ImageData.cs" />
+    <Compile Include="Objects\General\Images.cs" />
+    <Compile Include="Objects\General\ImagesWithId.cs" />
+    <Compile Include="Objects\General\Job.cs" />
+    <Compile Include="Objects\General\Keyword.cs" />
+    <Compile Include="Objects\General\MediaType.cs" />
+    <Compile Include="Objects\General\PersonResult.cs" />
+    <Compile Include="Objects\General\PosterImages.cs" />
+    <Compile Include="Objects\General\PostReply.cs" />
+    <Compile Include="Objects\General\ResultContainer.cs" />
+    <Compile Include="Objects\General\SearchContainer.cs" />
+    <Compile Include="Objects\General\SearchContainerWithDates.cs" />
+    <Compile Include="Objects\General\SearchContainerWithId.cs" />
+    <Compile Include="Objects\General\SortOrder.cs" />
+    <Compile Include="Objects\General\StillImages.cs" />
+    <Compile Include="Objects\General\TMDbConfig.cs" />
+    <Compile Include="Objects\General\Translation.cs" />
+    <Compile Include="Objects\General\TranslationsContainer.cs" />
+    <Compile Include="Objects\General\TranslationsContainerTv.cs" />
+    <Compile Include="Objects\General\TranslationWithCountry.cs" />
+    <Compile Include="Objects\General\Video.cs" />
+    <Compile Include="Objects\Genres\GenreContainer.cs" />
+    <Compile Include="Objects\Languages\Language.cs" />
+    <Compile Include="Objects\Lists\AccountList.cs" />
+    <Compile Include="Objects\Lists\GenericList.cs" />
+    <Compile Include="Objects\Lists\List.cs" />
+    <Compile Include="Objects\Lists\ListCreateReply.cs" />
+    <Compile Include="Objects\Lists\ListStatus.cs" />
+    <Compile Include="Objects\Movies\AlternativeTitles.cs" />
+    <Compile Include="Objects\Movies\Cast.cs" />
+    <Compile Include="Objects\Movies\Country.cs" />
+    <Compile Include="Objects\Movies\Credits.cs" />
+    <Compile Include="Objects\Movies\KeywordsContainer.cs" />
+    <Compile Include="Objects\Movies\ListResult.cs" />
+    <Compile Include="Objects\Movies\Movie.cs" />
+    <Compile Include="Objects\Movies\MovieMethods.cs" />
+    <Compile Include="Objects\Movies\ProductionCompany.cs" />
+    <Compile Include="Objects\Movies\ProductionCountry.cs" />
+    <Compile Include="Objects\Movies\ReleaseDateItem.cs" />
+    <Compile Include="Objects\Movies\ReleaseDatesContainer.cs" />
+    <Compile Include="Objects\Movies\ReleaseDateType.cs" />
+    <Compile Include="Objects\Movies\Releases.cs" />
+    <Compile Include="Objects\Movies\SpokenLanguage.cs" />
+    <Compile Include="Objects\People\MovieCredits.cs" />
+    <Compile Include="Objects\People\MovieJob.cs" />
+    <Compile Include="Objects\People\MovieRole.cs" />
+    <Compile Include="Objects\People\Person.cs" />
+    <Compile Include="Objects\People\PersonGender.cs" />
+    <Compile Include="Objects\People\PersonListType.cs" />
+    <Compile Include="Objects\People\PersonMethods.cs" />
+    <Compile Include="Objects\People\ProfileImages.cs" />
+    <Compile Include="Objects\People\TaggedImage.cs" />
+    <Compile Include="Objects\People\TvCredits.cs" />
+    <Compile Include="Objects\People\TvJob.cs" />
+    <Compile Include="Objects\People\TvRole.cs" />
+    <Compile Include="Objects\Reviews\Review.cs" />
+    <Compile Include="Objects\Reviews\ReviewBase.cs" />
+    <Compile Include="Objects\Search\AccountSearchTv.cs" />
+    <Compile Include="Objects\Search\AccountSearchTvEpisode.cs" />
+    <Compile Include="Objects\Search\KnownForBase.cs" />
+    <Compile Include="Objects\Search\KnownForMovie.cs" />
+    <Compile Include="Objects\Search\KnownForTv.cs" />
+    <Compile Include="Objects\Search\SearchBase.cs" />
+    <Compile Include="Objects\Search\SearchCollection.cs" />
+    <Compile Include="Objects\Search\SearchCompany.cs" />
+    <Compile Include="Objects\Search\SearchKeyword.cs" />
+    <Compile Include="Objects\Search\SearchList.cs" />
+    <Compile Include="Objects\Search\SearchMovie.cs" />
+    <Compile Include="Objects\Search\SearchMovieTvBase.cs" />
+    <Compile Include="Objects\Search\SearchMovieWithRating.cs" />
+    <Compile Include="Objects\Search\SearchPerson.cs" />
+    <Compile Include="Objects\Search\SearchTv.cs" />
+    <Compile Include="Objects\Search\SearchTvEpisode.cs" />
+    <Compile Include="Objects\Search\SearchTvSeason.cs" />
+    <Compile Include="Objects\Search\SearchTvShowWithRating.cs" />
+    <Compile Include="Objects\Search\TvSeasonEpisode.cs" />
+    <Compile Include="Objects\Timezones\Timezones.cs" />
+    <Compile Include="Objects\TvShows\Cast.cs" />
+    <Compile Include="Objects\TvShows\ContentRating.cs" />
+    <Compile Include="Objects\TvShows\CreatedBy.cs" />
+    <Compile Include="Objects\TvShows\Credits.cs" />
+    <Compile Include="Objects\TvShows\CreditsWithGuestStars.cs" />
+    <Compile Include="Objects\TvShows\Network.cs" />
+    <Compile Include="Objects\TvShows\NetworkBase.cs" />
+    <Compile Include="Objects\TvShows\NetworkLogos.cs" />
+    <Compile Include="Objects\TvShows\TvAccountState.cs" />
+    <Compile Include="Objects\TvShows\TvEpisode.cs" />
+    <Compile Include="Objects\TvShows\TvEpisodeAccountState.cs" />
+    <Compile Include="Objects\TvShows\TvEpisodeAccountStateWithNumber.cs" />
+    <Compile Include="Objects\TvShows\TvEpisodeMethods.cs" />
+    <Compile Include="Objects\TvShows\TvEpisodeWithRating.cs" />
+    <Compile Include="Objects\TvShows\TvSeason.cs" />
+    <Compile Include="Objects\TvShows\TvSeasonMethods.cs" />
+    <Compile Include="Objects\TvShows\TvShow.cs" />
+    <Compile Include="Objects\TvShows\TvShowListType.cs" />
+    <Compile Include="Objects\TvShows\TvShowMethods.cs" />
+    <Compile Include="Rest\ParameterType.cs" />
+    <Compile Include="Rest\RestClient.cs" />
+    <Compile Include="Rest\RestRequest.cs" />
+    <Compile Include="Rest\RestResponse.cs" />
+    <Compile Include="Singletons\MovieSingleton.cs" />
+    <Compile Include="Utilities\Converters\AccountStateConverter.cs" />
+    <Compile Include="Utilities\Converters\ChangeItemConverter.cs" />
+    <Compile Include="Utilities\Converters\CustomDatetimeFormatConverter.cs" />
+    <Compile Include="Utilities\Converters\EnumStringValueConverter.cs" />
+    <Compile Include="Utilities\Converters\JsonCreationConverter.cs" />
+    <Compile Include="Utilities\Converters\KnownForConverter.cs" />
+    <Compile Include="Utilities\Converters\SearchBaseConverter.cs" />
+    <Compile Include="Utilities\Converters\TaggedImageConverter.cs" />
+    <Compile Include="Utilities\Converters\TmdbNullIntAsZero.cs" />
+    <Compile Include="Utilities\Converters\TmdbPartialDateConverter.cs" />
+    <Compile Include="Utilities\Converters\TmdbUtcTimeConverter.cs" />
+    <Compile Include="Utilities\Converters\TolerantEnumConverter.cs" />
+    <Compile Include="Utilities\EnumExtensions.cs" />
+    <Compile Include="Utilities\EnumMemberCache.cs" />
+    <Compile Include="Utilities\EnumValueAttribute.cs" />
+    <Compile Include="Utilities\SimpleNamedValueCollection.cs" />
+    <Compile Include="Utilities\TMDbAPIProxy.cs" />
+    <Compile Include="ViewModels\MovieViewModel.cs" />
+    <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Image.PNG" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
