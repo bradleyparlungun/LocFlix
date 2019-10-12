@@ -19,7 +19,12 @@ In UWP you can't by default access the local system file system, but there is a 
 ```
 
 But the system is not ok with this, so the user has to go into their windows settings under privacy settings and change the following settings.
+
 ![windows privacy settings](https://i.gyazo.com/05d60dbf784edebf8c710e826b3a81bc.png)
+
+If you still have issues with getting access to the file system, then find the specific app in "Apps and features" and make sure the specific application has access to the file system.
+
+![app settings](https://i.gyazo.com/abe27b2ac5a9f86606d148a43e222cd7.png)
 
 ## UWP Application
 ![UWP Application](https://i.imgur.com/KHAyjc4.jpg)
